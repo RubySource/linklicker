@@ -1,0 +1,44 @@
+<div id="mainContent" class="sixteen columns" >
+  <div class="one-third column alpha" >
+    <h4>Add New</h4>
+    <form id="create_form" class="one-third column alpha" data-bind="submit: createNewLink">
+      <!-- ko with: newLink -->
+      <p>
+        <label for="link_url">Link:</label>
+        <input type="text" name="link[url]" id="link_url" data-bind="value: url"/>
+      </p>
+
+      <p>
+        <label for="description">Description:</label>
+        <input type="text" name="link[description]" id="link_description" data-bind="value: description"/>
+      </p>
+      <!-- /ko -->
+      <input type="submit" value="Add"/>
+    </form>
+  </div>
+  <div class="one-third column omega" >
+    <h4>New Links</h4>
+    <ul data-bind="foreach: newLinks">
+      <li>
+        <button data-bind="click: lick" style="padding:2px; margin:0px; vertical-align:middle">
+          <!-- This uses the hidden binding we wrote -->
+          <img style="vertical-align:middle" data-bind="hidden: isLicked,attr:{src: '/assets/lick.png' , alt: 'Lick this!'}" 
+          <img style="vertical-align:middle" data-bind="visible: isLicked, attr: '/assets/unlick.png', alt: 'Unlick this!'}" />
+        </button>
+      </button>
+        <a href="#" data-bind="text: description, attr:{href:url}"></a> 
+      </li> 
+    </ul>
+  </div>
+  <div class="one-third column omega" >
+    <h4>Licked Links</h4>
+    <ul data-bind="foreach: lickedLinks">
+      <li>
+        <button data-bind="click: unlick" style="padding:2px; margin:0px; vertical-align:middle">
+          <img style="vertical-align:middle" src="/assets/unlick.png" alt="UnLick this!" /></button>
+        <a href="#" data-bind="text: description, attr:{href:url}"></a> 
+      </li> 
+    </ul>
+  </div>
+</div>
+

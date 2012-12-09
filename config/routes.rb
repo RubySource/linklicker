@@ -1,6 +1,13 @@
 KnockoutJsRails::Application.routes.draw do
   devise_for :users
 
+  resources :links do
+    member do
+      post :lick
+      post :unlick
+    end
+  end
+
   root to: "home#index"
 
   # The priority is based upon order of creation:

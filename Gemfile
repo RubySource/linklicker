@@ -25,6 +25,11 @@ gem 'jquery-rails'
 
 group :development do
   gem 'skeleton_rails'
+  gem 'pry-rails'
+end
+
+group :test do
+  gem 'shoulda'
 end
 
 # To use ActiveModel has_secure_password

@@ -12,4 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require knockout-2.1.0
+//= require knockout.mapping-latest
+//= require bindings
+//= require model/model
+//= require model/link
+//= require app

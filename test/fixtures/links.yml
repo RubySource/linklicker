@@ -1,0 +1,7 @@
+google: 
+ url: http://www.google.com
+ user: one
+
+rubysource: 
+ url: http://www.rubysource.com
+ user: two

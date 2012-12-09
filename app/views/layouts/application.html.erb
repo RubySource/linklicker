@@ -1,82 +1,88 @@
 <!DOCTYPE html>
 <!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
-<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
-<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
-<head>
+  <!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+    <!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+      <!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+        <head>
 
-	<!-- Basic Page Needs
-  ================================================== -->
-	<meta charset="utf-8">
-	<title>LinkLicker</title>
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<!--[if lt IE 9]>
-		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-	<![endif]-->
+          <!-- Basic Page Needs
+          ================================================== -->
+          <meta charset="utf-8">
+          <title>LinkLicker</title>
+          <meta name="description" content="">
+          <meta name="author" content="">
+          <!--[if lt IE 9]>
+          <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+          <![endif]-->
 
-	<!-- Mobile Specific Metas
-  ================================================== -->
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+          <!-- Mobile Specific Metas
+          ================================================== -->
+          <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-	<!-- Favicons
-	================================================== -->
-	<link rel="shortcut icon" href="images/favicon.ico">
-	<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-	<link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
-	<link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
-
-         
-        <%= stylesheet_link_tag "application" %>
-        <%= javascript_include_tag "application" %>
-        
-        <%= csrf_meta_tag %>
-</head>
-<body>
+          <!-- Favicons
+          ================================================== -->
+          <link rel="shortcut icon" href="images/favicon.ico">
+          <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+          <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+          <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
 
 
+          <%= stylesheet_link_tag "application" %>
+          <%= javascript_include_tag "application" %>
 
-	<!-- Primary Page Layout
-	================================================== -->
+          <%= csrf_meta_tag %>
+        </head>
+        <body>
 
-	<!-- Delete everything in this .container and get started on your own site! -->
+          <!-- Primary Page Layout
+          ================================================== -->
 
-	<div class="container">
-		<div class="sixteen columns">
-			<h1 class="remove-bottom" style="margin-top: 40px">LinkLicker</h1>
-			<h5>Version 0.1</h5>
-			<hr />
-		</div>
-		<div class="sixteen columns">
-                  <%= yield %>
-                </div>
-                  <div class="one-third column">
-			<h3>About LinkLicker?</h3>
-                        <p>LinkLicker is a app that allows you to lick links. This means that you like them so much that you don't want anyone else to touch them.  We don't expect it to do well.</p>
-		</div>
+          <!-- Delete everything in this .container and get started on your own site! -->
 
-		<div class="one-third column">
-			<h3>Three Core Principles</h3>
-			<p>LinkLicker is built on three core principles:</p>
-			<ul class="square">
-				<li><strong>Licking is a strong indication of liking</strong>: Why would you lick something you don't like?</li>
-				<li><strong>Licking immediately transfers ownership</strong>: This is the way of the jungle.</li>
-				<li><strong>Alliteration is viral</strong>: Especially alliteration with 'L'.  It sells itself.</li>
-			</ul>
-		</div>
-		<div class="one-third column">
-			<h3>Docs &amp; Support</h3>
-                        <p>If you need support on a link that you have licked, too bad because that is gross and we aren't touching it. If you 
-                          need something else (and we can't figure out what that might be) send a non-licked email to support@linklicker.com.  
-                        There's a chance we'll respond. Not a very good chance, but a chance, nonetheless.</p>
-		</div>
+          <div class="container">
+            <div class="sixteen columns">
+              <h1 class="remove-bottom" style="margin-top: 40px">LinkLicker</h1>
+              <h5>Version 0.1</h5>
+              <hr />
+            </div>
+            <div class="sixteen columns">
+              <%= yield %>
+            </div>
+            <div class="one-third column">
+              <h3>All Links</h3>
+              <ul data-bind="foreach: allLinks">
+                <li>
+                  <button data-bind="click: lick, hidden: isLicked" style="padding:2px; margin:0px; vertical-align:middle">
+                    <img style="vertical-align:middle" src='/assets/lick.png' alt='Lick this' />
+                  </button>
+                  <button data-bind="click: unlick, visible: isLicked" style="padding:2px; margin:0px; vertical-align:middle">
+                    <img style="vertical-align:middle" src='/assets/unlick.png' alt='Unlick this' />
+                  </button>
+                  <a href="#" data-bind="text: description, attr:{href:url}"></a> 
+                </li> 
+              </ul>
+            </div>
 
-	</div><!-- container -->
+            <div class="one-third column">
+              <h3>Three Core Principles</h3>
+              <p>LinkLicker is built on three core principles:</p>
+              <ul class="square">
+                <li><strong>Licking is a strong indication of liking</strong>: Why would you lick something you don't like?</li>
+                <li><strong>Licking immediately transfers ownership</strong>: This is the way of the jungle.</li>
+                <li><strong>Alliteration is viral</strong>: Especially alliteration with 'L'.  It sells itself.</li>
+              </ul>
+            </div>
+            <div class="one-third column">
+              <h3>Docs &amp; Support</h3>
+              <p>If you need support on a link that you have licked, too bad because that is gross and we aren't touching it. If you 
+                need something else (and we can't figure out what that might be) send a non-licked email to support@linklicker.com.  
+                There's a chance we'll respond. Not a very good chance, but a chance, nonetheless.</p>
+            </div>
+
+          </div><!-- container -->
 
 
-       
-
-<!-- End Document
-================================================== -->
-</body>
-</html>
+          <!-- End Document
+          ================================================== -->
+        </body>
+      </html>
