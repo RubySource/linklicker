@@ -2,4 +2,17 @@
 
 LinkLicker is the code that goes with the articles on Knockout JS on Rubysource.com
 
+Setting this up should simply be a matter of:
+
+1. Clone the repo
+2. rake db:setup
+3. rails s (runs the server)
+4. Create a user (you should be able to do this with the 'Sign up' links)
+5. Submit links and lick them.
+
+If you have any issues setting this up, add an issue and I'll see to it.
+
+Glenn (glenn.goodrich@rubysource.com)
+
+
 
